@@ -1,0 +1,26 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "build:dev": {
+      "dependsOn": ["^build:dev"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "build:prod": {
+      "dependsOn": ["^build:prod"],
+      "outputs": [".next/**", "!.next/cache/**"],
+      "env": ["NEXT_PUBLIC_*"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "start": {
+      "cache": false
+    },
+    "test": {}
+  },
+  "globalEnv": ["NEXT_PUBLIC_MONGO_URI"]
+}
